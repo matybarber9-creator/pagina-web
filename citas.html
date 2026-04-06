@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Citas - MatyBarber</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h1>MatyBarber 💈</h1>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="citas.html">Citas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <h2>Pedir Cita</h2>
+
+    <form id="formCita">
+        <label>Nombre</label>
+        <input type="text" id="nombreCliente" placeholder="Tu nombre" required>
+
+        <label>Email</label>
+        <input type="email" id="emailCliente" placeholder="Tu email" required>
+
+        <label>Fecha</label>
+        <input type="date" id="fechaCita" required>
+
+        <label>Servicio</label>
+        <select id="servicioCita">
+            <option value="Corte de pelo">Corte de pelo</option>
+            <option value="Arreglo de barba">Arreglo de barba</option>
+            <option value="Corte + barba">Corte + barba</option>
+        </select>
+
+        <label>
+            <input type="checkbox" id="condiciones" required> Acepto condiciones
+        </label>
+
+        <button type="button" onclick="enviarPorWhatsApp()">Reservar cita</button>
+    </form>
+</section>
+
+<section>
+    <h2>Contacto</h2>
+
+    <p><strong>Teléfono:</strong> <a href="tel:+34602411690">602 411 690</a></p>
+    <p><strong>Ubicación:</strong> Estepa, Sevilla</p>
+    <p><strong>Email:</strong> <a href="@email.com">matybarber@gmail.com</a></p>
+</section>
+
+<footer>
+    <p>© 2026 MatyBarber</p>
+</footer>
+
+<script>
+function enviarPorWhatsApp() {
+    // Tu número de teléfono con el prefijo de España (34)
+    const telefono = "34602411690";
+
+    // Recogemos los datos del formulario
+    const nombre = document.getElementById('nombreCliente').value;
+    const email = document.getElementById('emailCliente').value;
+    const fecha = document.getElementById('fechaCita').value;
+    const servicio = document.getElementById('servicioCita').value;
+    const acepto = document.getElementById('condiciones').checked;
+
+    // Validación básica
+    if (nombre === "" || fecha === "" || !acepto) {
+        alert("Por favor, rellena todos los campos y acepta las condiciones.");
+        return;
+    }
+
+    // Creamos el mensaje para WhatsApp
+    // %0A es un salto de línea
+    const mensaje = "Hola MatyBarber! 💈%0A" + 
+                    "Quiero reservar una cita:%0A" + 
+                    "*Nombre:* " + nombre + "%0A" + 
+                    "*Servicio:* " + servicio + "%0A" + 
+                    "*Fecha:* " + fecha + "%0A" +
+                    "*Email:* " + email;
+
+    // Abrimos la ventana de WhatsApp
+    const url = "https://wa.me/" + telefono + "?text=" + mensaje;
+    window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
