@@ -86,6 +86,37 @@ a:hover {
     cursor: pointer;
 }
 
+/* Contenedor que recorta el exceso de imágenes */
+.galeria-scroll {
+    overflow: hidden;
+    width: 100%;
+    background: #111;
+    padding: 20px 0;
+}
+
+/* El grupo de fotos que se moverá */
+.contenedor-fotos {
+    display: flex;
+    gap: 15px;
+    width: max-content; /* Importante para que no se amontonen */
+    animation: scroll-horizontal 20s linear infinite;
+}
+
+/* Pausa el movimiento al pasar el ratón para que el usuario pueda ver bien una foto */
+.contenedor-fotos:hover {
+    animation-play-state: paused;
+}
+
+/* La animación */
+@keyframes scroll-horizontal {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Se mueve hacia la izquierda */
+    }
+}
+
 /* EFECTO AL PASAR EL RATÓN O CLICAR */
 .contenedor-fotos img:hover, 
 .contenedor-fotos img:active {
