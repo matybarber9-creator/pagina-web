@@ -67,6 +67,33 @@ a:hover {
     font-size: 2.5em;
 }
 
+/* ESTILOS PARA LA GALERÍA DE FOTOS */
+.contenedor-fotos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.contenedor-fotos img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 2px solid #c9a227; /* Borde dorado */
+    border-radius: 10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+/* EFECTO AL PASAR EL RATÓN O CLICAR */
+.contenedor-fotos img:hover, 
+.contenedor-fotos img:active {
+    transform: scale(1.1); /* Amplía la imagen un 10% */
+    box-shadow: 0 0 20px #ffd700; /* Brillo dorado extra al ampliar */
+    z-index: 10;
+}
+
 /* SECCIONES (TARJETAS PRO) */
 section {
     margin: 30px auto;
