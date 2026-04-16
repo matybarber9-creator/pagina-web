@@ -68,30 +68,25 @@ a:hover {
 }
 
 /* ESTILOS PARA LA GALERÍA DE FOTOS */
-.contenedor-fotos {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
 
 .contenedor-fotos img {
     width: 250px;
-    height: 250px;
+    height: 250px;  
     object-fit: cover;
     border: 2px solid #c9a227; /* Borde dorado */
     border-radius: 10px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     cursor: pointer;
+    
 }
 
 /* Contenedor que recorta el exceso de imágenes */
 .galeria-scroll {
     overflow: hidden;
     width: 100%;
-    background: #111;
+    background: #111111ab;
     padding: 20px 0;
+    display: block;
 }
 
 /* El grupo de fotos que se moverá */
@@ -99,7 +94,7 @@ a:hover {
     display: flex;
     gap: 15px;
     width: max-content; /* Importante para que no se amontonen */
-    animation: scroll-horizontal 20s linear infinite;
+    animation: scroll-horizontal 15s linear infinite;
 }
 
 /* Pausa el movimiento al pasar el ratón para que el usuario pueda ver bien una foto */
@@ -116,6 +111,7 @@ a:hover {
         transform: translateX(-50%); /* Se mueve hacia la izquierda */
     }
 }
+
 
 /* EFECTO AL PASAR EL RATÓN O CLICAR */
 .contenedor-fotos img:hover, 
